@@ -15,18 +15,7 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+route::get('/', [AdminController::class, 'home']);
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
 
-route::get('/home',[AdminController::class,'index']);
+route::get('/home', [AdminController::class,'index'])->name('home');
